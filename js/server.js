@@ -75,7 +75,7 @@ bot.on('voiceStateUpdate', (_, newMember) => {
 const fs = require('fs');
 fs.readFile('token', 'utf-8', (err, data) => {
     if (err) throw err;
-    console.log('Logging in with' + data);
+    console.log('Logging in with ' + data);
     bot.login(data);
 });
 
