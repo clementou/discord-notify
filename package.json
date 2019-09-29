@@ -1,0 +1,28 @@
+{
+  "name": "discord-notify",
+  "version": "1.0.0",
+  "description": "Discord bot that notifies with sound effects",
+  "main": "js/server.js",
+  "scripts": {
+    "start": "node js/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clementou/discord-notify.git"
+  },
+  "author": "clementou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clementou/discord-notify/issues"
+  },
+  "homepage": "https://github.com/clementou/discord-notify#readme",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-opus": "^0.3.2"
+  }
+}
