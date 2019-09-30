@@ -1,9 +1,20 @@
 {
   "users": [
-    {"id": "363180361188114434", "path": "./sounds/charlie.mp3"},
-    {"id": "190896840173027330", "path": "./sounds/charlie.mp3"}
+    {"id": "363180361188114434", "path": "./sounds/charlie.mp3", "name": "charlie"},
+    {"id": "190896840173027330", "path": "./sounds/lucas.mp3", "name": "lucas"},
+    {"id": "134149464033067008", "path": "./sounds/ram_ranch.mp3", "name": "robin"},
+    {"id": "171336809836576768", "path": "./sounds/car.mp3", "name": "clement"},
+    {"id": "182315199464865792", "path": "./sounds/quack.mp3", "name": "dickson"},
+    {"id": "212604981923151872", "path": "./sounds/soviet.mp3", "name": "philip w."},
+    {"id": "428577917962813460", "path": "./sounds/soviet.mp3", "name": "edgar"},
+    {"id": "217126106719846401", "path": "./sounds/aviv.mp3", "name": "aviv"},
+    {"id": "228378744639717388", "path": "./sounds/justin.mp3", "name": "justin"},
+    {"id": "333059265000636418", "path": "./sounds/aw_man.mp3", "name": "aditya s."},
+    {"id": "368454811319926796", "path": "./sounds/aw_man.mp3", "name": "michael"},
+    {"id": "336287361451425792", "path": "./sounds/big_alex.mp3", "name": "alex c."},
+    {"id": "261673021331210242", "path": "./sounds/guardian.mp3", "name": "jonah"}
   ],
   "channels": [
-    {"server": "143508754103664640", "log_channel": "252986450386092033"}
+    {"server": "143508754103664640", "log_channel": "628034426554679326"}
   ]
 }

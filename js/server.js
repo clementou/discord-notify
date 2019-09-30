@@ -4,7 +4,7 @@ const commando = require('discord.js-commando'); // importing discord.js
 const client = new commando.Client();
 
 const ids = require('../ids.json');
-const GENERAL_ID = ids.channels[0].log_channel;
+const GENERAL_ID = ids.channels[0]["log_channel"];
 
 sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
@@ -46,5 +46,5 @@ client.on('voiceStateUpdate', (_, newMember) => {
     });
 });
 
-client.login(process.env.BOT_TOKEN);
-
+client.login(process.env.BOT_TOKEN).then(r => {
+});
