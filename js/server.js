@@ -3,7 +3,7 @@ console.log("Startup");
 const Commando = require('discord.js-commando'); // importing discord.js
 const client = new Commando.Client();
 
-const ids = JSON.parse('../ids.json');
+// const ids = JSON.parse('../ids.json');
 const AUDIOFILE_PATH = './sounds/charlie.mp3';
 const CHARLIE_ID = '363180361188114434'; // Charlie ID: 363180361188114434
 const LUCAS_ID = '190896840173027330'; // Lucas ID: 190896840173027330
