@@ -1,6 +1,6 @@
 {
   "name": "discord-notify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Discord bot that notifies with sound effects",
   "main": "js/server.js",
   "engines": {
