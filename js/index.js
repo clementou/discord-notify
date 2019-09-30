@@ -8,7 +8,7 @@ sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
 client.on('ready', () => { // log in
     client.channels.get(GENERAL_ID).send(`Logged in as ${client.user.tag}!`).then(_ =>
-        console.log(`Logged in as ${client.user.tag}!`))
+        console.log(`Logged in as ${client.user.tag}!`));
 });
 
 client.on('voiceStateUpdate', (_, newMember) => {
