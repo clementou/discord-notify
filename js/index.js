@@ -36,6 +36,7 @@ client.on('voiceStateUpdate', (_, newMember) => {
 
         dispatcher.on('end', end => {
             console.log('Audio Finished Playing');
+            isReady = true;
             newMember.voiceChannel.leave();
         });
     });
