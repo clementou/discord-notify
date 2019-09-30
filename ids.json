@@ -1,0 +1,9 @@
+{
+  "users": [
+    {"id": "363180361188114434", "path": "./sounds/charlie.mp3"},
+    {"id": "190896840173027330", "path": "./sounds/charlie.mp3"}
+  ],
+  "channels": [
+    {"server": "143508754103664640", "log_channel": "252986450386092033"}
+  ]
+}

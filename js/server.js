@@ -1,20 +1,22 @@
 console.log("Startup");
 
-const Commando = require('discord.js-commando');
-let bot = new Commando.Client();
+const Commando = require('discord.js-commando'); // importing discord.js
+const client = new Commando.Client();
+
+const ids = JSON.parse('../ids.json');
 const AUDIOFILE_PATH = './sounds/charlie.mp3';
-const CHARLIE_ID = '171336809836576768'; // Charlie ID: 363180361188114434
+const CHARLIE_ID = '363180361188114434'; // Charlie ID: 363180361188114434
 const LUCAS_ID = '190896840173027330'; // Lucas ID: 190896840173027330
 const GENERAL_ID = '252986450386092033';
 
 sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
-bot.on('ready', () => {
-    bot.channels.get(GENERAL_ID).send(`Logged in as ${bot.user.tag}!`).then(_ =>
-        console.log(`Logged in as ${bot.user.tag}!`))
+client.on('ready', () => {
+    client.channels.get(GENERAL_ID).send(`Logged in as ${client.user.tag}!`).then(_ =>
+        console.log(`Logged in as ${client.user.tag}!`))
 });
 
-bot.on('voiceStateUpdate', (_, newMember) => {
+client.on('voiceStateUpdate', (_, newMember) => {
     console.log('Voice State Update');
     if (newMember.id !== CHARLIE_ID
         || newMember.voiceChannel === undefined) return;
@@ -23,7 +25,7 @@ bot.on('voiceStateUpdate', (_, newMember) => {
     let voiceChannel = newMember.voiceChannel;
 
     // TEXT
-    bot.channels.get(GENERAL_ID).send(`CHARLIE ALERT IN VOICE CHANNEL ***<#${voiceChannel.id}>!***`).then(_ =>
+    client.channels.get(GENERAL_ID).send(`CHARLIE ALERT IN VOICE CHANNEL ***<#${voiceChannel.id}>!***`).then(_ =>
         console.log('Message Sent'));
 
     // VOICE
@@ -42,7 +44,7 @@ bot.on('voiceStateUpdate', (_, newMember) => {
     });
 });
 
-bot.on('voiceStateUpdate', (_, newMember) => {
+client.on('voiceStateUpdate', (_, newMember) => {
     console.log('Voice State Update');
     if (newMember.id !== LUCAS_ID
         || newMember.voiceChannel === undefined) return;
@@ -52,7 +54,7 @@ bot.on('voiceStateUpdate', (_, newMember) => {
 
 // TEXT
 
-    bot.channels.get(GENERAL_ID).send(`LUCAS ALERT IN VOICE CHANNEL ***<#${voiceChannel.id}>!***`).then(_ =>
+    client.channels.get(GENERAL_ID).send(`LUCAS ALERT IN VOICE CHANNEL ***<#${voiceChannel.id}>!***`).then(_ =>
         console.log('Message Sent'));
 
 // VOICE
@@ -72,10 +74,5 @@ bot.on('voiceStateUpdate', (_, newMember) => {
     });
 });
 
-// const fs = require('fs');
-// fs.readFile('token', 'utf-8', (err, data) => {
-//     if (err) throw err;
-//     console.log('Logging in with ' + data);
-bot.login(process.env.BOT_TOKEN);
-// });
+client.login(process.env.BOT_TOKEN);
 
