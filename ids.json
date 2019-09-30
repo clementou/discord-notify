@@ -13,7 +13,9 @@
     {"id": "368454811319926796", "path": "./sounds/aw_man.mp3", "name": "michael"},
     {"id": "336287361451425792", "path": "./sounds/big_alex.mp3", "name": "alex c."},
     {"id": "261673021331210242", "path": "./sounds/guardian.mp3", "name": "jonah"},
-    {"id": "143509108429946881", "path": "./sounds/dialup.mp3", "name": "stephan"}
+    {"id": "143509108429946881", "path": "./sounds/dialup.mp3", "name": "stephan"},
+    {"id": "185080525357056000", "path": "./sounds/black.mp3", "name": "aditya d."},
+    {"id": "168376512272269313", "path": "./sounds/leen.mp3", "name": "kabir"}
   ],
   "channels": [
     {"server": "143508754103664640", "log_channel": "628034426554679326"}
