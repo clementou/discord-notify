@@ -15,14 +15,9 @@ client.on('ready', () => {
 
 client.on('voiceStateUpdate', (_, newMember) => {
     console.log('Voice State Update');
-    let id_exists = false;
-    let index = '';
-    for (let i = 0; i < ids.users.length; i++) // check if newMember in json
-        if (ids.users[i].id === newMember.id) {
-            id_exists = true;
-            index = i;
-        }
-    if (!id_exists || newMember.voiceChannel === undefined) return; // stop if not
+    let user = ids.users.filter(user => user.id === newMember.id)[0]; // may be undefined
+    
+    if (user === undefined || newMember.voiceChannel === undefined) return; // stop if not
     console.log(newMember.user + 'state updated');
 
     // TEXT
@@ -34,7 +29,7 @@ client.on('voiceStateUpdate', (_, newMember) => {
     newMember.voiceChannel.join().then(connection => {
         console.log('Connection Established to vc ' + newMember.voiceChannel.name);
 
-        let dispatcher = connection.playFile(ids.users[index].path);
+        let dispatcher = connection.playFile(user.path);
         console.log('Audio Playing in ' + newMember.voiceChannel.name);
 
         dispatcher.on('speaking', (isSpeaking) => {
