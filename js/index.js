@@ -13,15 +13,16 @@ client.on('ready', () => {
         console.log(`Logged in as ${client.user.tag}!`))
 });
 
+let isReady = true;
 client.on('voiceStateUpdate', (_, newMember) => {
     console.log('Voice State Update');
     let user = ids.users.filter(user => user.id === newMember.id)[0]; // may be undefined
-    
-    if (user === undefined || newMember.voiceChannel === undefined) return; // stop if not
+
+    if (user === undefined || newMember.voiceChannel === undefined || !isReady) return; // stop if not
     console.log(newMember.user + 'state updated');
 
     // TEXT
-    client.channels.get(GENERAL_ID).send(newMember.nickname +
+    client.channels.get(GENERAL_ID).send(newMember.displayName +
         ` ALERT IN VOICE CHANNEL ***<#${newMember.voiceChannel.id}>!***`).then(_ =>
         console.log('Message Sent to ' + client.channels.get(GENERAL_ID)));
 
@@ -31,12 +32,11 @@ client.on('voiceStateUpdate', (_, newMember) => {
 
         let dispatcher = connection.playFile(user.path);
         console.log('Audio Playing in ' + newMember.voiceChannel.name);
+        isReady = false;
 
-        dispatcher.on('speaking', (isSpeaking) => {
-            if (!isSpeaking) {
-                console.log('Audio Finished Playing');
-                newMember.voiceChannel.leave();
-            }
+        dispatcher.on('end', end => {
+            console.log('Audio Finished Playing');
+            newMember.voiceChannel.leave();
         });
     });
 });
