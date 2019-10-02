@@ -1,6 +1,6 @@
 {
   "name": "discord-notify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Discord bot that notifies with sound effects",
   "main": "js/index.js",
   "engines": {
@@ -22,12 +22,8 @@
   },
   "homepage": "https://github.com/clementou/discord-notify#readme",
   "dependencies": {
-    "@ffmpeg-installer/ffmpeg": "^1.0.20",
-    "@google-cloud/storage": "^3.3.0",
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
-    "ffmpeg": "0.0.4",
-    "fluent-ffmpeg": "^2.1.2",
     "node-opus": "^0.3.2",
     "request": "^2.88.0"
   }
