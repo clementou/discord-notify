@@ -12,8 +12,11 @@ client.on('ready', () => { // log in
         console.log(`Logged in as ${client.user.tag}!`))
 });
 
-client.on('voiceStateUpdate', (_, newMember) => {
+client.on('voiceStateUpdate', (oldMember, newMember) => {
     const voiceChannel = newMember.voiceChannel;
+
+    if (voiceChannel != undefined && oldMember.voiceChannel.id == voiceChannel.id) return;
+
     let user = ids.users.filter(user => user.id === newMember.id)[0]; // may be undefined
 
     if (user === undefined || voiceChannel === undefined
