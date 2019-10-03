@@ -15,7 +15,7 @@ client.on('ready', () => { // log in
 client.on('voiceStateUpdate', (oldMember, newMember) => {
     const voiceChannel = newMember.voiceChannel;
 
-    if (voiceChannel != undefined && oldMember.voiceChannel.id == voiceChannel.id) return;
+    if (voiceChannel && oldMember && oldMember.voiceChannel && oldMember.voiceChannel.id == voiceChannel.id) return;
 
     let user = ids.users.filter(user => user.id === newMember.id)[0]; // may be undefined
 
