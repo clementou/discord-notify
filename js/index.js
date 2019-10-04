@@ -1,5 +1,8 @@
 const commando = require('discord.js-commando'); // importing discord.js
-const client = new commando.Client();
+const client = new commando.Client({
+    commandPrefix: '>',
+    owner: '171336809836576768'
+});
 
 const ids = require('../ids.json'); // client ids, soundbites, channel ids
 const logGuildID = ids.channels[0]["server"];
