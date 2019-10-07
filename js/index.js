@@ -8,14 +8,11 @@ const ids = require('../ids.json'); // client ids, soundbites, channel ids
 const logGuildID = ids.channels[0]["server"];
 const logChannelID = ids.channels[0]["log_channel"];
 
-// Map of playerID : connection
-var connections = {};
-
 sleep = (ms) => new Promise(res => setTimeout(res, ms)); // TODO add catch
 
 client.on('ready', () => { // log in
     client.channels.get(logChannelID).send(`Logged in as ${client.user.tag}!`).then(_ =>
-        console.log(`Logged in as ${client.user.tag}!`));
+        console.log(`Logged in as ${client.user.tag}!`))
 });
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
@@ -24,8 +21,6 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     if (voiceChannel && oldMember && oldMember.voiceChannel && oldMember.voiceChannel.id == voiceChannel.id) return;
 
     let user = ids.users.filter(user => user.id === newMember.id)[0]; // may be undefined
-
-    if (connections[newMember.id]) voiceChannelExit(newMember.id);
 
     if (user === undefined || voiceChannel === undefined
         || client.voiceConnections.array().includes(voiceChannel.connection)) return; // stop if not
@@ -39,22 +34,16 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     // VOICE
     voiceChannel.join().then(connection => { // connect to vc
         console.log('#' + voiceChannel.name + ': connection established');
-        connections[newMember.id] = connection;
+
         let dispatcher = connection.playFile(user.path); // play audio
         console.log('#' + voiceChannel.name + ': audio playing');
 
         dispatcher.on('end', end => { // audio finishes
             console.log('#' + voiceChannel.name + ': audio finished playing');
-            voiceChannelExit(newMember.id);
+            voiceChannel.leave();
         });
     });
 });
 
 client.login(process.env.BOT_TOKEN).then(r => { // login with token
 });
-
-function voiceChannelExit(playerID) {
-    voiceChannel.leave();
-    connections[playerID].disconnect();
-    connections[playerID] = null;
-}
