@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando'); // importing discord.js
 const client = new commando.Client({
-    commandPrefix: '>',
+    commandPrefix: '$',
     owner: '171336809836576768'
 });
 
